@@ -1,0 +1,25 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "Node.js application",
+  "scripts": {
+    "setup": "sh ./bin/setup.sh",
+    "test": "lerna run --stream test",
+    "build": "lerna run --stream build",
+    "start": "lerna run --stream start",
+    "clean": "lerna run clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abeliam/forum.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abeliam/forum/issues"
+  },
+  "homepage": "https://github.com/abeliam/forum#readme",
+  "dependencies": {
+    "lerna": "^2.5.1"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@nodeapp/database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-test",
+    "start": "run-start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "shortid": "^2.2.8",
+    "mongoose-slug-generator": "^1.0.4",
+    "mongoose": "^5.0.7",
+    "@std/esm": "^0.19.1",
+    "@nodeapp/tasks": "^1.0.0"
+  },
+  "@std/esm": "cjs"
+}

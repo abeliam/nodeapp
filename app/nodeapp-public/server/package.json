@@ -1,0 +1,22 @@
+{
+  "name": "@nodeapp/public-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "test": "run-test",
+    "start": "run-start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@std/esm": "^0.19.1",
+    "express": "^4.16.2",
+    "http-status": "^1.0.1",
+    "@nodeapp/public-client": "^1.0.0",
+    "@nodeapp/tasks": "^1.0.0"
+  },
+  "@std/esm": {
+    "esm": "cjs"
+  }
+}

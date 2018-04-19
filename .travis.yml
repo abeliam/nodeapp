@@ -1,0 +1,21 @@
+language: node_js
+
+node_js: "node"
+
+install:
+  - npm install
+  - ./node_modules/.bin/lerna bootstrap
+  - npm run build
+
+services:
+  - mongodb
+
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  email:
+    recipients:
+      - abelbotbot@gmail.com
+    on_success: always
