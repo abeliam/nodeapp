@@ -1,17 +1,28 @@
 stages:
     - build
+    - test
     - release
     - deploy
     
 build:
     image: node:9-alpine
+    
+    stage: build
+    
     script:
         - npm run setup
+
+test:
+    image: node:9-alpine
+    
+    stage: test
+    
+    script: npm run test
 
 release:
     image: docker:latest
     
-    stage: build
+    stage: release
     
     services:
         - docker:dind
