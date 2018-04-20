@@ -4,10 +4,10 @@
   "description": "Node.js application",
   "scripts": {
     "setup": "sh ./bin/setup.sh",
-    "test": "lerna run --stream test",
-    "build": "lerna run --stream build",
-    "start": "lerna run --stream start",
-    "clean": "lerna run clean"
+    "test": "./node_modules/.bin/lerna run --stream test",
+    "build": "./node_modules/.bin/lerna run --stream build",
+    "start": "./node_modules/.bin/lerna run --stream start",
+    "clean": "./node_modules/.bin/lerna run clean"
   },
   "repository": {
     "type": "git",
