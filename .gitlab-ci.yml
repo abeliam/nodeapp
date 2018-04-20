@@ -42,6 +42,6 @@ deploy:
     image: alpine:latest
 
     stage: deploy
-s
+
     script:
         - ssh $USER@$HOST
