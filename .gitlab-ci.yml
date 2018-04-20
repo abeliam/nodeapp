@@ -45,6 +45,7 @@ deploy:
     stage: deploy
     
     before_script:
+        - apk update
         - apk add openssh
 
     script:
