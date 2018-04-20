@@ -9,7 +9,8 @@ build:
 
     stage: build
 
-    before_script: npm run setup
+    before_script:
+        - npm run setup
 
     script: npm run build
 
@@ -18,7 +19,8 @@ test:
 
     stage: test
 
-    before_script: npm run setup
+    before_script:
+        - npm run setup
 
     script: npm test
 
