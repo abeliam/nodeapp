@@ -47,6 +47,8 @@ deploy:
     before_script:
         - apk update
         - apk add openssh
+        - apk add bash
+        - bash
         - eval $(ssh-agent -s)
         - mkdir -p ~/.ssh
         - ssh-add <(echo "$SSH_PRIVATE_KEY")
