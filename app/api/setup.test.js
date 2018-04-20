@@ -1,4 +1,4 @@
-import connect from "@forum/database/connect/test.db"
+import connect from "@nodeapp/database/connect/test.db"
 
 process.env.NODE_ENV = "test"
 
