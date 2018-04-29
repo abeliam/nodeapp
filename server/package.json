@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-public-server": "node public",
-    "start-admin-server": "node admin",
-    "start-api-server": "node api"
+    "test": "run-test",
+    "start-public-server": "pm2 start --node-args '-r esm' public",
+    "start-admin-server": "pm2 start --node-args '-r esm' admin",
+    "start-api-server": "pm2 start --node-args '-r esm' api"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "esm": "^3.0.28",
+    "express": "^4.16.3",
+    "express-bearer-token": "^2.1.1",
+    "http-status": "^1.0.1",
+    "mongoose": "^5.0.16",
+    "pm2": "^2.10.3"
   }
 }

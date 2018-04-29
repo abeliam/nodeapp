@@ -1,14 +1,11 @@
 {
-  "name": "@nodeapp/jobs",
+  "name": "@nodeapp/database",
   "version": "1.0.0",
   "description": "",
-  "main": "build.js",
+  "main": "uri.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "shelljs": "^0.8.1"
-  }
+  "license": "MIT"
 }
