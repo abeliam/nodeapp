@@ -2,7 +2,6 @@
 
 ## usage
 ```
-make install
-make build
+make
 make start
 ```
