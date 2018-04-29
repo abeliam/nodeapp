@@ -1,9 +1,0 @@
-{
-  "lerna": "2.5.1",
-  "packages": [
-    "app/*",
-    "app/*/*",
-    "bin"
-  ],
-  "version": "0.0.0"
-}

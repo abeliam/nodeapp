@@ -1,7 +1,0 @@
-#!/usr/bin/env node
-
-require = require("@std/esm")(module, {
-  esm: "cjs"
-})
-
-require("./start.js")
