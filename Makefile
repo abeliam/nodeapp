@@ -3,11 +3,7 @@ normal=\033[0m
 
 all: build
 
-install: tools/node_modules client/node_modules server/node_modules link-local-dependencies link-binaries
-
-tools/node_modules: tools/package.json
-	@echo -e "${bold}==== Installing tools dependencies ...${normal}"
-	cd tools && npm install
+install: client/node_modules server/node_modules link-local-dependencies
 
 client/node_modules: client/package.json
 	@echo -e "${bold}==== Installing client dependencies ...${normal}"
@@ -23,14 +19,6 @@ server/node_modules/@nodeapp: server/node_modules
 	mkdir -p server/node_modules/@nodeapp client/node_modules/@nodeapp
 	ln -sf `pwd`/client `pwd`/server/node_modules/@nodeapp/client
 	ln -sf `pwd`/database `pwd`/server/node_modules/@nodeapp/database
-
-link-binaries: client/node_modules/.bin/run-build client/node_modules/.bin/run-test server/node_modules/.bin/run-test
-
-client/node_modules/.bin/run-%:
-	ln -sf `pwd`/tools/$* `pwd`/client/node_modules/.bin/run-$*
-
-server/node_modules/.bin/run-%:
-	ln -sf `pwd`/tools/$* `pwd`/server/node_modules/.bin/run-$*
 
 start: install
 	make start-api-server start-public-server start-admin-server
