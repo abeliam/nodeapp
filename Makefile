@@ -15,7 +15,7 @@ create-folders: .dist/node/node_modules .storage/database
 
 .dist/node/node_modules:
 	mkdir -p .dist/node
-	ln -sf `pwd`/server/node_modules `pwd`/.dist/node/node_modules
+	test -L .dist/node/node_modules && ln -sf `pwd`/server/node_modules `pwd`/.dist/node/node_modules
 
 .storage/database:
 	mkdir -p .storage/database
@@ -35,6 +35,9 @@ start: setup
 start-dev: setup
 	@echo -e "${bold}==== Starting in development mode ...${normal}"
 	cd server && npm run start-dev
+
+start-dev-%:
+	nodemon -r ./server/node_modules/esm --watch .dist/node/$*/index.js .dist/node/$*/index.js
 
 start-database:
 	mongod --dbpath .storage/database
