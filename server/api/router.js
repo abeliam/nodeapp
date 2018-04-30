@@ -8,6 +8,6 @@ import HTTPStatus from "http-status"
 const apiRouter = new Router()
 
 // Unhandled routes
-apiRouter.use("*", (request, response) => response.sendStatus(HTTPStatus.NOT_FOUND))
+apiRouter.use("*", (request, response) => response.sendStatus(500))
 
 export default apiRouter

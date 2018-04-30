@@ -3,49 +3,61 @@ normal=\033[0m
 
 all: build
 
-install: client/node_modules server/node_modules link-local-dependencies
+install: client/node_modules server/node_modules database/node_modules
 
-client/node_modules: client/package.json
-	@echo -e "${bold}==== Installing client dependencies ...${normal}"
-	cd client && npm install
+%/node_modules: %/package.json
+	@echo -e "${bold}==== Installing $* dependencies ...${normal}"
+	cd $* && npm install
 
-server/node_modules: server/package.json
-	@echo -e "${bold}==== Installing server dependencies ...${normal}"
-	cd server && npm install
+setup: install create-folders link-local-dependencies
 
-link-local-dependencies: client/node_modules server/node_modules server/node_modules/@nodeapp
+create-folders: .dist/node/node_modules .storage/database
 
-server/node_modules/@nodeapp: server/node_modules
-	mkdir -p server/node_modules/@nodeapp client/node_modules/@nodeapp
-	ln -sf `pwd`/client `pwd`/server/node_modules/@nodeapp/client
-	ln -sf `pwd`/database `pwd`/server/node_modules/@nodeapp/database
+.dist/node/node_modules:
+	mkdir -p .dist/node
+	ln -sf `pwd`/server/node_modules `pwd`/.dist/node/node_modules
 
-start: install
-	make start-api-server start-public-server start-admin-server
+.storage/database:
+	mkdir -p .storage/database
+
+link-local-dependencies: server/node_modules/@nodeapp/client server/node_modules/@nodeapp/database
+
+server/node_modules/@nodeapp/client:
+	cd server && npm link ../client
+
+server/node_modules/@nodeapp/database:
+	cd server && npm link ../database
+
+start: setup
+	@echo -e "${bold}==== Starting in production mode ...${normal}"
+	cd server && npm start
+
+start-dev: setup
+	@echo -e "${bold}==== Starting in development mode ...${normal}"
+	cd server && npm run start-dev
 
 start-database:
-	sudo mongod --dbpath .storage/database
+	mongod --dbpath .storage/database
 
-start-%-server: server/node_modules
-	@echo -e "${bold}==== Starting $* server ...${normal}"
-	cd server && npm run start-$*-server
-
-build: install
-	@echo -e "${bold}==== Building ...${normal}"
+build: setup
+	@echo -e "${bold}==== Building in production mode ...${normal}"
 	cd client && npm run build
+	cd server && npm run build
 
-build-dev: install
-	@echo -e "${bold}==== Building ...${normal}"
+build-dev: setup
+	@echo -e "${bold}==== Building in development mode ...${normal}"
 	cd client && npm run build-dev
+	cd server && npm run build-dev
 
 test: test-client test-server
 
-test-client: install
+test-client:
 	@echo -e "${bold}==== Testing client ...${normal}"
 	cd client && npm test
 
-test-server: install
+test-server:
 	@echo -e "${bold}==== Testing server ...${normal}"
 	cd server && npm test
 
-.PHONY: all
+uninstall:
+	rm -rf client/node_modules database/node_modules server/node_modules

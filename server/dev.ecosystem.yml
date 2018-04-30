@@ -1,0 +1,13 @@
+apps:
+  - script: "../.dist/node/api"
+    name: "@nodeapp/api-server"
+    node_args: "-r esm"
+    watch: "../.dist/node/api"
+  - script: "../.dist/node/public"
+    name: "@nodeapp/public-server"
+    node_args: "-r esm"
+    watch: "../.dist/node/api"
+  - script: "../.dist/node/admin"
+    name: "@nodeapp/admin-server"
+    node_args: "-r esm"
+    watch: "../.dist/node/public"

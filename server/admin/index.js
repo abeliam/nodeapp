@@ -1,6 +1,6 @@
 import express from "express"
 import path from "path"
-import { adminOutput } from "@nodeapp/client/output"
+import { adminOutput } from "@nodeapp/client"
 const app_port = 8282
 const app = express()
 

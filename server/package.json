@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "run-test",
-    "start-public-server": "pm2 start --node-args '-r esm' public",
-    "start-admin-server": "pm2 start --node-args '-r esm' admin",
-    "start-api-server": "pm2 start --node-args '-r esm' api"
+    "build": "NODE_ENV=production node build/api & NODE_ENV=production node build/public & NODE_ENV=production node build/admin",
+    "build-dev": "pm2 start build.dev.ecosystem.yml",
+    "start": "pm2 start ecosystem.yml",
+    "start-dev": "pm2 start dev.ecosystem.yml",
+    "test": "echo 'NOT IMPLEMENTED'"
   },
   "author": "",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "express-bearer-token": "^2.1.1",
     "http-status": "^1.0.1",
     "mongoose": "^5.0.16",
+    "parcel-bundler": "^1.7.1",
     "pm2": "^2.10.3"
   }
 }

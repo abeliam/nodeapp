@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build public/index.html --out-dir ../.storage/web/public & parcel build admin/index.html --out-dir ../.storage/web/admin",
-    "build-dev": "parcel watch public/index.html --out-dir ../.storage/web/public & parcel watch admin/index.html --out-dir ../.storage/web/admin",
-    "test": "run-test"
+    "build": "NODE_ENV=production node build/public & NODE_ENV=production node build/admin",
+    "build-dev": "pm2 start build.dev.ecosystem.yml",
+    "test": "echo 'NOT IMPLEMENTED'"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "esm": "^3.0.28",
     "parcel-bundler": "^1.7.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
