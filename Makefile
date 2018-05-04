@@ -62,7 +62,9 @@ test-server:
 	@echo -e "${bold}==== Testing server ...${normal}"
 	cd server && npm test
 
-dev:
+dev: setup
+	[ -d .dist/node ] || mkdir -p .dist/node
+	[ -L .dist/node/node_modules ] || ln -sf `pwd`/server/node_modules `pwd`/.dist/node/node_modules
 	make build-dev
 	$(call run_in_new_terminal,"make start-database") &
 	$(call run_in_new_terminal,"nodemon -r ./server/node_modules/esm ./.dist/node/public") &

@@ -1,4 +1,12 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css");
+@font-face {
+  font-family: "Cantarell";
+  src: url("./modules/app/fonts/Cantarell-Regular.woff") format("woff");
+}
+
+body {
+  font-family: "Cantarell", sans-serif;
+}
 
 #mainNavbar {
   background: #00d;
@@ -16,5 +24,14 @@
 }
 
 #mainNavbar a:hover {
-  background: rgba(0,0,0,10);
+  background: #00c;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#mainNavbar a.active {
+  background: #00a;
 }
