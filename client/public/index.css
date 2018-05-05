@@ -1,4 +1,5 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css");
+@import url("normalize.css");
+
 @font-face {
   font-family: "Cantarell";
   src: url("./modules/app/fonts/Cantarell-Regular.woff") format("woff");
@@ -28,10 +29,62 @@ body {
 }
 
 .container {
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 #mainNavbar a.active {
   background: #00a;
+}
+
+label {
+  display: block;
+  font-size: 1.1em;
+  line-height: 2em;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.field > input {
+  border-radius: 1px;
+  line-height: 2em;
+  height: 2em;
+  border: 1px solid #c4c4c4;
+  margin: 1px;
+  background: #fff;
+  padding: 0 10px;
+}
+
+.field > input:focus {
+  margin: 0;
+  border: 2px solid #5b84ba;
+}
+
+.field.submit {
+  background: #c4c4c4;
+  padding: 30px 20px;
+}
+
+button {
+  background: #00d;
+  line-height: 2.2em;
+  height: 2.2em;
+  border-radius: 2px;
+  padding: 0 20px;
+  border: 0;
+  color: white;
+}
+
+button:hover {
+  background: #00c;
+  cursor: pointer;
+}
+
+.required.field label::after {
+  content: " *";
+  color: #a00;
 }

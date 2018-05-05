@@ -4,8 +4,8 @@ import { Route, Switch } from "react-router-dom"
 import NotFound from "./NotFound"
 import MainNavbar from "./MainNavbar"
 import Home from "./Home"
-import SignIn from "../../auth/components/SignIn"
-import SignUp from "../../auth/components/SignUp"
+import SignIn from "../../auth/containers/SignIn"
+import SignUp from "../../auth/containers/SignUp"
 
 const Main = () => (
   <div id="app">
