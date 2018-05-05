@@ -1,6 +1,11 @@
+import { combineReducers } from "redux"
+import { reducer as form } from "redux-form"
 
-const reducer = (state, action) => {
-  return state
-}
+import flash from "./modules/app/reducer"
 
-export default reducer
+const rootReducer = combineReducers({
+  flash,
+  form
+})
+
+export default rootReducer

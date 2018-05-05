@@ -13,13 +13,16 @@ install: client/node_modules server/node_modules database/node_modules
 	@echo -e "${bold}==== Installing $* dependencies ...${normal}"
 	cd $* && npm install
 
-link: install server/node_modules/@nodeapp/client server/node_modules/@nodeapp/database
+link: install server/node_modules/@nodeapp/client server/node_modules/@nodeapp/database client/node_modules/@nodeapp/database
 
 server/node_modules/@nodeapp/client:
 	cd server && npm link ../client
 
 server/node_modules/@nodeapp/database:
 	cd server && npm link ../database
+
+client/node_modules/@nodeapp/database:
+	cd client && npm link ../database
 
 setup: link
 
@@ -73,3 +76,9 @@ dev: setup
 
 uninstall:
 	rm -rf client/node_modules database/node_modules server/node_modules
+
+clean-dist:
+	rm -rf .dist
+
+clean-cache:
+	rm -rf .cache

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom"
 
 import NotFound from "./NotFound"
 import MainNavbar from "./MainNavbar"
+import MessageBar from "../containers/MessageBar"
 import Home from "./Home"
 import SignIn from "../../auth/containers/SignIn"
 import SignUp from "../../auth/containers/SignUp"
@@ -13,6 +14,7 @@ const Main = () => (
       <h1>Nodeapp</h1>
     </div>
     <MainNavbar/>
+    <MessageBar/>
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route path="/signin" component={SignIn}/>

@@ -1,0 +1,15 @@
+{
+  "title": "User",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "passwordHash": {
+      "type": "string"
+    },
+    "signedUpAt": {
+      "type": "integer",
+    }
+  }
+}

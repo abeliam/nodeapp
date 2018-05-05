@@ -1,10 +1,5 @@
 @import url("normalize.css");
 
-@font-face {
-  font-family: "Cantarell";
-  src: url("./modules/app/fonts/Cantarell-Regular.woff") format("woff");
-}
-
 body {
   font-family: "Cantarell", sans-serif;
 }
@@ -46,7 +41,7 @@ label {
 .field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .field > input {
@@ -59,9 +54,23 @@ label {
   padding: 0 10px;
 }
 
+.errored.field > input {
+  margin: 0;
+  border: 2px solid #ed5a5a;
+}
+
 .field > input:focus {
   margin: 0;
   border: 2px solid #5b84ba;
+}
+
+.errored.field > input:focus {
+  border-color: #ed5a5a;;
+}
+
+.field p.meta {
+  color: #ed5a5a;;
+  margin: 0;
 }
 
 .field.submit {
@@ -87,4 +96,28 @@ button:hover {
 .required.field label::after {
   content: " *";
   color: #a00;
+}
+
+#messageBar {
+  background: #0d0;
+  color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+#messageBar p {
+  margin: 0;
+  flex-grow: 1;
+}
+
+#messageBar a.close {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none!important;
 }

@@ -1,21 +1,20 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { reduxForm, Field } from "redux-form"
 
-const SignIn = () => (
+import InputField from "../../../elements/form/InputField"
+
+const SignIn = ({handleSubmit}) => (
   <section className="container">
     <h2>Sign In</h2>
-    <form id="signInForm">
-      <div className="required field">
-        <label htmlFor="username">Username</label>
-        <input type="text" name="username"/>
-      </div>
-      <div className="required field">
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password"/>
-      </div>
+    <form id="signInForm" onSubmit={handleSubmit}>
+      <Field name="username" label="Username" component={InputField} type="text" />
+      <Field name="password" label="Password" component={InputField} type="password" />
       <button type="submit">Sign In</button>
     </form>
   </section>
 )
 
-export default SignIn
+export default reduxForm({
+  form: "signin"
+})(SignIn)
