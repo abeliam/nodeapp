@@ -1,11 +1,20 @@
+/*
+This file exports the API Router
+*/
+
 import { Router } from "express"
 import HTTPStatus from "http-status"
 
-/*
-  This file exports the API Router
-*/
+import authController from "./controllers/auth.controller"
+import userController from "./controllers/user.controller"
 
 const apiRouter = new Router()
+
+// Authentication routes
+
+apiRouter.post("/auth/signin", authController.signIn)
+apiRouter.get("/user", userController.list)
+apiRouter.get("/user/:id", userController.readPublicData)
 
 // Unhandled routes
 apiRouter.use("*", (request, response) => response.sendStatus(HTTPStatus.NOT_FOUND))

@@ -4,16 +4,13 @@ import bodyParser from "body-parser"
 import bearerToken from "express-bearer-token"
 import cors from "cors"
 import path from "path"
-import mongoose from "mongoose"
-import databaseURI from "@nodeapp/database/uri"
-
+import Database from "@nodeapp/database"
 import apiRouter from "./router"
-
-mongoose.Promise = global.Promise
+import UserRepository from "./repositories/UserRepository"
 
 async function main() {
   try {
-    await mongoose.connect(databaseURI)
+    const db = await Database.connect()
 
     const api = express()
     const api_port = 8181
