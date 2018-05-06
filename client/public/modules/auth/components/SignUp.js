@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import InputField from "../../../elements/form/InputField"
 import { reduxForm, Field } from "redux-form"
 import validate from "redux-form-with-ajv"
-import UserCredentials from "@nodeapp/database/schemas/UserCredentials"
+import UserCredentials from "@nodeapp/shared/schemas/UserCredentials"
 
 const SignUp = ({handleSubmit}) => (
   <section className="container">

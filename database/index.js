@@ -2,8 +2,8 @@ import { MongoClient } from "mongodb"
 
 class Database {
   constructor() {
-    this.url = "mongodb://localhost"
-    this. dbName = "nodeapp"
+    this.url = "mongodb://localhost/nodeapp"
+    this.dbName = "nodeapp"
   }
 
   connect() {
@@ -15,6 +15,12 @@ class Database {
         resolve(this.db)
       })
     )
+  }
+
+  async initialize() {
+    const users = (await import("./collections/user.collection")).default
+
+    await users.initialize()
   }
 }
 

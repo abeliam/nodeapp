@@ -1,6 +1,8 @@
 import HTTPStatus from "http-status"
 import jwt from "jsonwebtoken"
 
+import User from "@nodeapp/database/collections/user.collection"
+
 const userController = {
   /*
     If user is authenticated, respond with his own data in json,
@@ -23,8 +25,8 @@ const userController = {
    */
   async readPublicData(request, response) {
     try {
-      const user = {}//await User.find({_id: request.params.id}, "_id username")
-      response.send(user)
+      const user = await User.findById(request.params.id)
+      response.json(user)
     }
     catch(e) {
       console.log(e)
@@ -34,7 +36,7 @@ const userController = {
 
   async list(request, response) {
     try {
-      const users = []//await User.find()
+      const users = await User.findAll()
       response.json(users)
     }
     catch(e) {

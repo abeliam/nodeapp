@@ -9,7 +9,7 @@
       "type": "string"
     },
     "signedUpAt": {
-      "type": "integer",
+      "type": "number"
     }
   }
 }

@@ -6,11 +6,11 @@ import cors from "cors"
 import path from "path"
 import Database from "@nodeapp/database"
 import apiRouter from "./router"
-import UserRepository from "./repositories/UserRepository"
 
 async function main() {
   try {
     const db = await Database.connect()
+    await Database.initialize()
 
     const api = express()
     const api_port = 8181
