@@ -1,5 +1,6 @@
 import { connect, dispatch } from "react-redux"
 import SignIn from "../components/SignIn"
+import authActions from "../actions"
 
 const mapStateToProps = state => ({
 
@@ -7,7 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit: (values) => {
-    dispatch({type: "AUTH__SIGNIN_REQUEST", payload: values})
+    dispatch(authActions.signInRequest(values))
   }
 })
 
