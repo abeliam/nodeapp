@@ -7,15 +7,18 @@ class UserCollection {
   async initialize() {
     this.collection = Database.db.collection("users")
 
-    await Database.db.command( { collMod: "users",
-       validator: { $jsonSchema: userschema },
-       validationLevel: "moderate",
-       validationAction: "warn"
+    await Database.db.command({
+      collMod: "users",
+      validator: { $jsonSchema: userschema },
+      validationLevel: "moderate",
+      validationAction: "error"
     })
   }
 
   async findAll(fields) {
-    return await this.collection.find().toArray()
+    return await this.collection.find({}, {
+      projection: makeProjection(fields)
+    }).toArray()
   }
 
   async findById(id, fields) {
@@ -28,8 +31,22 @@ class UserCollection {
     })
   }
 
-  async insert(username, password, email) {
+  async findByUsername(username, fields) {
+    return await this.collection.findOne({
+      username: {
+        $eq: username
+      }
+    }, {
+      projection: makeProjection(fields)
+    })
+  }
 
+  async insert(username, passwordHash, email) {
+    await this.collection.insert({
+      username,
+      passwordHash,
+      email
+    })
   }
 }
 

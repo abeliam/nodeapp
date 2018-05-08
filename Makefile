@@ -59,7 +59,7 @@ build: setup
 build-dev: setup
 	@echo -e "${bold}==== Building in development mode ...${normal}"
 	cd client && npm run build-dev
-	cd server && npm run build-dev
+	# cd server && npm run build-dev
 
 test: test-client test-server
 
@@ -72,13 +72,11 @@ test-server:
 	cd server && npm test
 
 dev: setup
-	[ -d .dist/node ] || mkdir -p .dist/node
-	[ -L .dist/node/node_modules ] || ln -sf `pwd`/server/node_modules `pwd`/.dist/node/node_modules
-	make build-dev
 	$(call run_in_new_terminal,"make start-database") &
-	$(call run_in_new_terminal,"nodemon -r ./server/node_modules/esm ./.dist/node/public") &
-	$(call run_in_new_terminal,"nodemon -r ./server/node_modules/esm ./.dist/node/admin") &
-	$(call run_in_new_terminal,"nodemon -r ./server/node_modules/esm ./.dist/node/api") &
+	make build-dev
+	$(call run_in_new_terminal,"cd server && nodemon -r esm public") &
+	$(call run_in_new_terminal,"cd server && nodemon -r esm admin") &
+	$(call run_in_new_terminal,"cd server && nodemon -r esm api") &
 
 uninstall:
 	rm -rf client/node_modules database/node_modules server/node_modules

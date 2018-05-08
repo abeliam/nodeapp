@@ -12,7 +12,8 @@ const apiRouter = new Router()
 
 // Authentication routes
 
-apiRouter.post("/auth/signin", authController.signIn)
+apiRouter.post("/auth", authController.signIn)
+apiRouter.post("/user", userController.create)
 apiRouter.get("/user", userController.list)
 apiRouter.get("/user/:id", userController.readPublicData)
 

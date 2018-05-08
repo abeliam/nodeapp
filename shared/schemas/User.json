@@ -3,13 +3,22 @@
   "type": "object",
   "properties": {
     "username": {
-      "type": "string"
+      "type": "string",
+      "minLength": 6
     },
     "passwordHash": {
       "type": "string"
     },
+    "email": {
+      "type": "string",
+      "pattern": "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+    },
     "signedUpAt": {
       "type": "number"
+    },
+    "signedInAt": {
+      "type": "number"
     }
-  }
+  },
+  "required": ["username", "passwordHash", "email"]
 }

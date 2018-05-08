@@ -1,36 +1,29 @@
 import HTTPStatus from "http-status"
 import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt"
 
 import User from "@nodeapp/database/collections/user.collection"
 
 const userController = {
-  /*
-    If user is authenticated, respond with his own data in json,
-    otherwise response with an HTTP Status error code
-   */
   async readPrivateData(request, response) {
     try {
-      const payload = jwt.decode(request.token)
-      const user = {}//await User.findOne({_id: payload.userid}, "_id username mail")
-      response.json(user)
-    }
-    catch(e) {
-      response.status(HTTPStatus.INTERNAL_SERVER_ERROR).send()
-    }
-  },
-
-  /*
-    Get public data of requested user
-      @param {id} user unique id
-   */
-  async readPublicData(request, response) {
-    try {
-      const user = await User.findById(request.params.id)
+      const user = await User.findById(request.params.id, "_id username email")
       response.json(user)
     }
     catch(e) {
       console.log(e)
-      response.sendStatus(400)
+      response.sendStatus(HTTPStatus.BAD_REQUEST)
+    }
+  },
+
+  async readPublicData(request, response) {
+    try {
+      const user = await User.findById(request.params.id, "_id username")
+      response.json(user)
+    }
+    catch(e) {
+      console.log(e)
+      response.sendStatus(HTTPStatus.BAD_REQUEST)
     }
   },
 
@@ -47,17 +40,19 @@ const userController = {
 
   async create(request, response) {
     try {
-      const {username, password, mail} = request.body
-      await User.create({username, password, mail})
+      const {username, password, email} = request.body
+      if (await User.findByUsername(username, "_id"))
+        throw "Username already exists"
+      const passwordHash = await bcrypt.hash(password, 10)
+      await User.insert(username, passwordHash, email)
       response.sendStatus(HTTPStatus.CREATED)
     }
-    catch(errors) {
-      if (errors.username) {
-        response.status(HTTPStatus.CONFLICT).json({errors})
-      }
-      else {
-        throw errors
-      }
+    catch(err) {
+      console.log(err)
+      response.status(HTTPStatus.BAD_REQUEST).json({
+        status: HTTPStatus.BAD_REQUEST,
+        message: "Validation Error"
+      })
     }
   }
 }
