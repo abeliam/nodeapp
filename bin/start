@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+start_dev() {
+  echo -e "\033[1mStart application in development mode\033[0m"
+  mongod --fork --dbpath .storage/database --logpath .storage/logs/database
+	cd server && node -r esm public &
+	cd server && node -r esm admin &
+  cd server && nodemon -r esm api
+}
+
+start_prod() {
+  echo -e "\033[1mStart application in development mode\033[0m"
+  echo "TODO"
+}
+
+if [ "$*" = "dev" ]; then
+  start_dev
+else
+  start_prod
+fi

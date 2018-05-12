@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+logfile=`pwd`"/.storage/logs/link"
+
+link() {
+  echo -e "\033[1mLink local dependencies\033[0m"
+
+  echo -ne "- linking server dependencies${normal}"
+
+	bash -c "cd server && npm link ../client && npm link ../database && npm link ../shared" 2>> ${logfile} >> ${logfile} &
+  ./bin/spinner $!
+
+  echo -ne "- linking client dependencies${normal}"
+
+	cd client && npm link ../shared 2>> ${logfile} >> ${logfile} &
+  ./bin/spinner $!
+
+  echo -ne "- linking database dependencies${normal}"
+
+	cd database && npm link ../shared 2>> ${logfile} >> ${logfile} &
+  ./bin/spinner $!
+}
+
+link

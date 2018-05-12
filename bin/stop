@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+stop_all() {
+  killall mongod
+  killall node
+  pm2 delete all
+}
+
+stop_all

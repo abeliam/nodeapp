@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+i=1
+sp="\+/"
+echo -ne "\033[31m   "
+while [ -d /proc/$1 ]
+do
+  printf "\b\b${sp:i++%${#sp}:1} "
+done
+echo -e "\b\b\033[0m\e[42m ok \e[49m"
