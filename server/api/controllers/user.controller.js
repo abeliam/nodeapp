@@ -5,20 +5,9 @@ import bcrypt from "bcrypt"
 import User from "@nodeapp/database/collections/user.collection"
 
 const userController = {
-  async readPrivateData(request, response) {
+  async read(request, response) {
     try {
       const user = await User.findById(request.params.id, "_id username email")
-      response.json(user)
-    }
-    catch(e) {
-      console.log(e)
-      response.sendStatus(HTTPStatus.BAD_REQUEST)
-    }
-  },
-
-  async readPublicData(request, response) {
-    try {
-      const user = await User.findById(request.params.id, "_id username")
       response.json(user)
     }
     catch(e) {
