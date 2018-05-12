@@ -3,6 +3,8 @@
 start_dev() {
   echo -e "\033[1mStart application in development mode\033[0m"
   mongod --fork --dbpath .storage/database --logpath .storage/logs/database
+  cd client && pm2 start build.dev.ecosystem.yml &
+  cd server && pm2 start build.dev.ecosystem.yml &
 	cd server && node -r esm public &
 	cd server && node -r esm admin &
   cd server && nodemon -r esm api
