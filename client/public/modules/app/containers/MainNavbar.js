@@ -1,5 +1,6 @@
 import { connect, dispatch } from "react-redux"
 import MainNavbar from "../components/MainNavbar"
+import { withRouter } from 'react-router'
 
 const mapStateToProps = state => ({
   authenticated: state.auth.authenticated
@@ -15,4 +16,4 @@ const MainNavbarContainer = connect(
   mapDispatchToProps
 )(MainNavbar)
 
-export default MainNavbarContainer
+export default withRouter(MainNavbarContainer)

@@ -1,17 +1,11 @@
-import { AUTH__SIGNIN_SUCCESS, AUTH__SIGNOUT_SUCCESS } from "./actions"
+import { USER__FETCHUSER_SUCCESS } from "./actions"
 
 const authReducer = (state, action) => {
-  if (state === undefined) return { authenticated: !!localStorage.getItem("token") }
+  if (state === undefined) return { username: "undefined" }
 
   switch (action.type) {
-    case AUTH__SIGNIN_SUCCESS:
-      return {
-        authenticated: true
-      }
-    case AUTH__SIGNOUT_SUCCESS:
-      return {
-        authenticated: false
-      }
+    case USER__FETCHUSER_SUCCESS:
+      return action.payload
   }
   return state
 }

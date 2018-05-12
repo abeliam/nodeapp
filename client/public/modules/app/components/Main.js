@@ -13,7 +13,7 @@ import Profile from "../../user/containers/Profile"
 const Main = () => (
   <div id="app">
     <div className="container">
-      <h1>Nodeapp</h1>
+      <h1>Nodeappl</h1>
     </div>
     <MainNavbar/>
     <MessageBar/>
