@@ -1,5 +1,0 @@
-apps:
-  - script: build/public.js
-    name: '@nodeapp/client-public-watch'
-  - script: build/admin.js
-    name: '@nodeapp/client-admin-watch'

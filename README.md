@@ -3,5 +3,6 @@
 # Usage
 ## development
 ```
+./bin/setup
 ./bin/start dev
 ```

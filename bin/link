@@ -7,17 +7,17 @@ link() {
 
   echo -ne "- linking server dependencies${normal}"
 
-	bash -c "cd server && npm link ../client && npm link ../database && npm link ../shared" 2>> ${logfile} >> ${logfile} &
+	bash -c "cd src/server && npm link ../client && npm link ../database && npm link ../shared" 2>> ${logfile} >> ${logfile} &
   ./bin/spinner $!
 
   echo -ne "- linking client dependencies${normal}"
 
-	cd client && npm link ../shared 2>> ${logfile} >> ${logfile} &
+	cd src/client && npm link ../shared 2>> ${logfile} >> ${logfile} &
   ./bin/spinner $!
 
   echo -ne "- linking database dependencies${normal}"
 
-	cd database && npm link ../shared 2>> ${logfile} >> ${logfile} &
+	cd src/database && npm link ../shared 2>> ${logfile} >> ${logfile} &
   ./bin/spinner $!
 }
 

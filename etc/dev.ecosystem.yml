@@ -1,0 +1,11 @@
+apps:
+  - script: src/client/build/public.js
+    name: "@nodeapp/client-public-watch"
+  - script: src/client/build/admin.js
+    name: "@nodeapp/client-admin-watch"
+  - script: "src/server/public"
+    name: "@nodeapp/public-server"
+    node_args: "-r ./src/server/node_modules/esm"
+  - script: "src/server/admin"
+    name: "@nodeapp/admin-server"
+    node_args: "-r ./src/server/node_modules/esm"

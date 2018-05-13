@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo -e "\033[1mTest\033[0m"

@@ -1,7 +1,0 @@
-apps:
-  - script: "build/api.js"
-    name: "@nodeapp/api-server-watch"
-  - script: "build/public.js"
-    name: "@nodeapp/public-server-watch"
-  - script: "build/admin.js"
-    name: "@nodeapp/admin-server-watch"
