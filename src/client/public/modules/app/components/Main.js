@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom"
 
 import NotFound from "./NotFound"
 import MainNavbar from "../containers/MainNavbar"
-import MessageBar from "../containers/MessageBar"
+import Messages from "../containers/Messages"
 import Home from "./Home"
 import SignIn from "../../auth/containers/SignIn"
 import SignUp from "../../auth/containers/SignUp"
@@ -18,7 +18,7 @@ class Main extends React.Component {
           <h1>Nodeappl</h1>
         </div>
         <MainNavbar/>
-        <MessageBar/>
+        <Messages/>
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/signin" component={SignIn}/>

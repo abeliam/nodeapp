@@ -98,21 +98,38 @@ button:hover {
   color: #a00;
 }
 
-#messageBar {
-  background: #0d0;
-  color: #fff;
-  padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
+#messages {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 400px;
 }
 
-#messageBar p {
+.message {
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+.message.success {
+  background: #0d0;
+}
+
+.message.error {
+  background: #d00;
+}
+
+.message.info {
+  background: #00d;
+}
+
+.message p {
   margin: 0;
   flex-grow: 1;
 }
 
-#messageBar a.close {
+.message a.close {
   color: #fff;
   font-weight: bold;
   text-decoration: none;
