@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import jdenticon from "jdenticon"
 
 const UserData = ({label, children}) => (
   <div className="userData">
@@ -11,16 +12,30 @@ const UserData = ({label, children}) => (
 const username = "John"
 const email = "john@doe"
 
-const Profile = ({handleSubmit, user}) => (
-  <section className="container">
-    <h2>Profile</h2>
-    <UserData label="Username">
-      <p>{user.username}</p>
-    </UserData>
-    <UserData label="Email">
-      <p>{user.email}</p>
-    </UserData>
-  </section>
-)
+class Profile extends React.Component {
+  componentDidUpdate() {
+    console.log("did")
+    jdenticon.update(`#avatar-${this.props.user._id}-${this.props.user.username}`, this.props.user._id)
+  }
+
+  render() {
+    console.log("done")
+    const {user} = this.props
+    return (
+      <section className="container">
+        <h2>Profile</h2>
+        <svg id={`avatar-${this.props.user._id}-${this.props.user.username}`} width="80" height="80">
+          Please update your browser
+        </svg>
+        <UserData label="Username">
+          <p>{user.username}</p>
+        </UserData>
+        <UserData label="Email">
+          <p>{user.email}</p>
+        </UserData>
+      </section>
+    )
+  }
+}
 
 export default Profile

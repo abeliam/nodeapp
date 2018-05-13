@@ -7,6 +7,9 @@ import { USER__FETCHUSER_REQUEST,
          USER__FETCHUSER_SUCCESS,
          USER__FETCHUSER_FAILURE } from "./actions"
 
+import { AUTH__SIGNIN_SUCCESS,
+         AUTH__SIGNOUT_SUCCESS } from "../auth/actions"
+
 
 function* fetchUser(action) {
   try {
@@ -21,7 +24,7 @@ function* fetchUser(action) {
 
 function* userSaga() {
   yield takeLatest(USER__FETCHUSER_REQUEST, fetchUser)
-  yield takeLatest(USER__FETCHUSER_REQUEST, fetchUser)
+  yield takeLatest(AUTH__SIGNIN_SUCCESS, fetchUser)
 }
 
 export default userSaga

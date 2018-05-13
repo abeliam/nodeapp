@@ -3,6 +3,8 @@ import api from "../../api"
 import history from "../../history"
 import message from "../app/actions"
 
+import { USER__CLEANDATA } from "../user/actions"
+
 function* signIn(action) {
   try {
     const response = yield api.post("/auth", action.payload)
@@ -30,6 +32,7 @@ function* signUp(action) {
 function* signOut(action) {
   try {
     localStorage.removeItem("token")
+    yield put({type: USER__CLEANDATA})
     yield put({type: "AUTH__SIGNOUT_SUCCESS"})
   } catch (e) {
     yield put({type: "AUTH__SIGNOUT_FAILURE", message: e.message})
