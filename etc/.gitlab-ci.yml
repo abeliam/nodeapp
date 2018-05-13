@@ -10,6 +10,8 @@ build:
   stage: build
 
   before_script:
+    - apk update
+    - apk add bash
     - npm install -g pm2 nodemon
     - ./bin/setup
 
