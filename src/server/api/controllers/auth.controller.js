@@ -1,10 +1,11 @@
 import HTTPStatus from "http-status"
 import jwt from "jsonwebtoken"
-
+import path from "path"
 import User from "@nodeapp/database/collections/user.collection"
 import bcrypt from "bcrypt"
+import fs from "fs"
 
-const secret = "jkhyiowxhcjkfgozeq"
+const cert = fs.readFileSync(path.join(__dirname, "../../../../.storage/security/private.key"))
 
 const authController = {
   async signIn(request, response) {
@@ -17,7 +18,7 @@ const authController = {
         throw "Invalid password"
       const token = jwt.sign({
         id: user._id
-      }, secret, { expiresIn: "1h" })
+      }, cert, { algorithm: "RS256", expiresIn: "1h" })
       response.json({ token })
     }
     catch(e) {

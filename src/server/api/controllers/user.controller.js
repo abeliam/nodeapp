@@ -3,8 +3,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
 import User from "@nodeapp/database/collections/user.collection"
-
-const secret = "jkhyiowxhcjkfgozeq"
+import cert from "../cert"
 
 const userController = {
   async read(request, response) {
@@ -12,7 +11,7 @@ const userController = {
       let fields = "_id username"
 
       try {
-        const decoded = await jwt.verify(request.token, secret)
+        const decoded = await jwt.verify(request.token, cert)
         if (decoded.id === request.params.id) {
           fields += " email"
         }
