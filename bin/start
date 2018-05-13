@@ -3,12 +3,12 @@
 start_dev() {
   echo -e "\033[1mStart application in development mode\033[0m"
   mongod --fork --dbpath .storage/database --logpath .storage/logs/database
-  pm2 start etc/dev.ecosystem.js
+  pm2 start etc/dev.ecosystem.yml
   cd src/server && nodemon -r esm api
 }
 
 start_prod() {
-  echo -e "\033[1mStart application in development mode\033[0m"
+  echo -e "\033[1mStart application in production mode\033[0m"
   echo "TODO"
 }
 
