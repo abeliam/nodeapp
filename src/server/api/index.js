@@ -19,6 +19,7 @@ async function main() {
     api.use(bodyParser.json())
     api.use(bodyParser.urlencoded({ extended: true }))
     api.use(bearerToken())
+    
     api.use("/", apiRouter)
 
     api.listen(api_port, () => console.log(`api server listening on port ${api_port}`))

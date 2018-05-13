@@ -1,7 +1,7 @@
 import { USER__FETCHUSER_SUCCESS } from "./actions"
 
 const authReducer = (state, action) => {
-  if (state === undefined) return { username: "undefined" }
+  if (state === undefined) return {}
 
   switch (action.type) {
     case USER__FETCHUSER_SUCCESS:

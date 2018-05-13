@@ -20,7 +20,8 @@ function* fetchUser(action) {
 }
 
 function* userSaga() {
-  yield takeLatest("AUTH__SIGNIN_SUCCESS", fetchUser)
+  yield takeLatest(USER__FETCHUSER_REQUEST, fetchUser)
+  yield takeLatest(USER__FETCHUSER_REQUEST, fetchUser)
 }
 
 export default userSaga

@@ -4,10 +4,22 @@ import bcrypt from "bcrypt"
 
 import User from "@nodeapp/database/collections/user.collection"
 
+const secret = "jkhyiowxhcjkfgozeq"
+
 const userController = {
   async read(request, response) {
     try {
-      const user = await User.findById(request.params.id, "_id username email")
+      let fields = "_id username"
+
+      try {
+        const decoded = await jwt.verify(request.token, secret)
+        if (decoded.id === request.params.id) {
+          fields += " email"
+        }
+      }
+      catch(e) {}
+
+      const user = await User.findById(request.params.id, fields)
       response.json(user)
     }
     catch(e) {

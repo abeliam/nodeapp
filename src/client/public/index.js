@@ -6,7 +6,8 @@ import store from "./store"
 import history from "./history"
 import "babel-polyfill"
 
-import Main from "./modules/app/components/Main"
+import Main from "./modules/app/containers/Main"
+
 
 import "./modules/app/fonts/Cantarell-Regular.woff"
 

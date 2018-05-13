@@ -9,6 +9,7 @@ const sagaMiddleware = createSagaMiddleware()
 const store = createStore(reducer,
                           applyMiddleware(logger,
                                           sagaMiddleware))
+
 sagaMiddleware.run(saga)
 
 export default store
