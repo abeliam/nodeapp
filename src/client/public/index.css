@@ -138,3 +138,22 @@ button:hover {
 .hidden {
   display: none!important;
 }
+
+#langMenu {
+  display: flex;
+  flex-direction: column;
+  width: 45px;
+  text-align: center;
+}
+
+#langMenu > a:not(:hover) {
+  background: #00d;
+}
+
+#langMenu > a {
+  display: none;
+}
+
+#langMenu > a:first-child, #langMenu:hover > a:not(:first-child) {
+  display: flex;
+}

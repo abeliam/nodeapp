@@ -12,7 +12,7 @@ link() {
 
   echo -ne "- linking client dependencies${normal}"
 
-	cd src/client && npm link ../shared 2>> ${logfile} >> ${logfile} &
+	bash -c "cd src/client && npm link ../shared && npm link ../../intl" 2>> ${logfile} >> ${logfile} &
   ./bin/spinner $!
 
   echo -ne "- linking database dependencies${normal}"

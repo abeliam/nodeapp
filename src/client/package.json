@@ -21,6 +21,8 @@
     "parcel-bundler": "^1.7.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-intl": "^2.4.0",
+    "react-intl-redux": "^0.7.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
