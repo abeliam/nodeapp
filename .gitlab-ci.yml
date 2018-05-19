@@ -11,7 +11,7 @@ build:
 
   before_script:
     - apk update
-    - apk add bash python make
+    - apk add bash python make g++
     - npm install -g pm2 pnpm
     - pnpm run setup
 
@@ -24,7 +24,7 @@ test:
 
   before_script:
     - apk update
-    - apk add bash python make
+    - apk add bash python make g++
     - npm install -g pm2 pnpm
     - pnpm run setup
 
