@@ -1,0 +1,16 @@
+dependencies:
+  '@nodeapp/admin-client': 'link:web/admin'
+  '@nodeapp/admin-server': 'link:app/admin'
+  '@nodeapp/api-server': 'link:app/api'
+  '@nodeapp/database': 'link:db'
+  '@nodeapp/public-client': 'link:web/public'
+  '@nodeapp/public-server': 'link:app/public'
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 7
+shrinkwrapVersion: 3
+specifiers:
+  '@nodeapp/admin-client': ^0.0.0
+  '@nodeapp/admin-server': ^0.0.0
+  '@nodeapp/api-server': ^0.0.0
+  '@nodeapp/public-client': ^0.0.0
+  '@nodeapp/public-server': ^0.0.0

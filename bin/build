@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-NODE_ENV=production node src/client/build/admin.js
-NODE_ENV=production node src/client/build/public.js
-NODE_ENV=production node src/server/build/admin.js
-NODE_ENV=production node src/server/build/public.js
-NODE_ENV=production node src/server/build/api.js

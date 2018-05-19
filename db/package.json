@@ -1,0 +1,15 @@
+{
+  "name": "@nodeapp/database",
+  "version": "0.0.0",
+  "description": "",
+  "main": "uri.js",
+  "scripts": {
+    "test": "echo 'NOT IMPLEMENTED'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nodeapp/schemas": "^0.0.0",
+    "mongodb": "^3.0.7"
+  }
+}

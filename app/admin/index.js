@@ -1,0 +1,11 @@
+import express from "express"
+import path from "path"
+import adminOutput from "@nodeapp/admin-client/output"
+const app_port = 8282
+const app = express()
+
+app.use(express.static(adminOutput))
+
+app.get('*', (request, response) => response.sendFile(path.join(adminOutput, "index.html")))
+
+app.listen(app_port, () => console.log(`admin app server listening on port ${app_port}`))

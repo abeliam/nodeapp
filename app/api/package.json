@@ -1,0 +1,30 @@
+{
+  "name": "@nodeapp/api-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nodeapp/database": "^0.0.0",
+    "ajv": "^6.4.0",
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "esm": "^3.0.34",
+    "express": "^4.16.3",
+    "express-bearer-token": "^2.1.1",
+    "http-status": "^1.0.1",
+    "jsonwebtoken": "^8.2.1",
+    "mongodb": "^3.0.7",
+    "parcel-bundler": "^1.7.1",
+    "pm2": "^2.10.3"
+  },
+  "bin": {
+      "start-api-server": "./start.bin.js"
+  }
+}

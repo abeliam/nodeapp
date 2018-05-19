@@ -1,0 +1,20 @@
+{
+  "name": "@nodeapp/admin-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nodeapp/admin-client": "^0.0.0",
+    "esm": "^3.0.34",
+    "express": "^4.16.3"
+  },
+  "bin": {
+    "start-admin-server": "./start.bin.js"
+  }
+}

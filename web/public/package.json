@@ -1,0 +1,40 @@
+{
+  "name": "@nodeapp/public-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build",
+    "build-dev": "node build dist watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nodeapp/intl": "^0.0.0",
+    "@nodeapp/schemas": "^0.0.0",
+    "ajv": "^6.4.0",
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^2.5.6",
+    "esm": "^3.0.28",
+    "jdenticon": "^2.1.0",
+    "jwt-decode": "^2.2.0",
+    "normalize.css": "^8.0.0",
+    "parcel-bundler": "^1.7.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-intl": "^2.4.0",
+    "react-intl-redux": "^0.7.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-form": "^7.3.0",
+    "redux-form-with-ajv": "^0.4.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0"
+  },
+  "bin": {
+    "build-public-client": "./build.bin.js"
+  }
+}

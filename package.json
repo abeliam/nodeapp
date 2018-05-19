@@ -1,0 +1,25 @@
+{
+  "name": "nodeapp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "setup": "pnpm recursive link && pnpm recursive install",
+    "start": "mongod --dbpath .storage/database & pnpx start-api-server & pnpx start-public-server & pnpx start-admin-server",
+    "build": "pnpx build-public-client .dist/browser/public && pnpx build-admin-client .dist/browser/admin",
+    "build:dev": "pnpx build-public-client .dist/browser/public watch & pnpx build-admin-client .dist/browser/admin watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@nodeapp/admin-client": "^0.0.0",
+    "@nodeapp/admin-server": "^0.0.0",
+    "@nodeapp/api-server": "^0.0.0",
+    "@nodeapp/public-client": "^0.0.0",
+    "@nodeapp/public-server": "^0.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}
