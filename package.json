@@ -8,7 +8,8 @@
   },
   "scripts": {
     "setup": "pnpm recursive link && pnpm recursive install",
-    "start": "mongod --dbpath .storage/database & pnpx start-api-server & pnpx start-public-server & pnpx start-admin-server",
+    "start": "pnpx start-api-server & pnpx start-public-server & pnpx start-admin-server",
+    "start-database": "mongod --dbpath .storage/database",
     "build": "pnpx build-public-client .dist/browser/public && pnpx build-admin-client .dist/browser/admin",
     "build:dev": "pnpx build-public-client .dist/browser/public watch & pnpx build-admin-client .dist/browser/admin watch",
     "test": "echo \"Error: no test specified\" && exit 1"

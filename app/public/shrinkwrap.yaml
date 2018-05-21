@@ -392,6 +392,6 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 7
 shrinkwrapVersion: 3
 specifiers:
-  '@nodeapp/admin-client': ^0.0.0
+  '@nodeapp/public-client': ^0.0.0
   esm: ^3.0.34
   express: ^4.16.3

@@ -10,7 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@nodeapp/admin-client": "^0.0.0",
+    "@nodeapp/public-client": "^0.0.0",
     "esm": "^3.0.34",
     "express": "^4.16.3"
   },
