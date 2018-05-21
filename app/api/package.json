@@ -25,6 +25,7 @@
     "pm2": "^2.10.3"
   },
   "bin": {
-      "start-api-server": "./start.bin.js"
+      "start-api-server": "./start.bin.js",
+      "keygen": "./keygen.sh"
   }
 }
