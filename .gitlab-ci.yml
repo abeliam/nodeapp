@@ -2,7 +2,7 @@ stages:
   - build
   - test
   - release
-#  - deploy
+  - deploy
 
 build:
   image: node:9-alpine
@@ -45,17 +45,17 @@ release:
     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
     - docker push "$CI_REGISTRY_IMAGE"
 
-# deploy:
-#   image: alpine:latest
-#
-#   stage: deploy
-#
-#   before_script:
-#     - apk update
-#     - apk add openssh bash
-#     - eval $(ssh-agent -s)
-#     - mkdir -p ~/.ssh
-#     - bash -c "ssh-add <(echo '$SSH_PRIVATE_KEY')"
-#
-#   script:
-#     - ssh $USER@$HOST echo "deploy"
+deploy:
+  image: alpine:latest
+
+  stage: deploy
+
+  before_script:
+    - apk update
+    - apk add openssh bash
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - bash -c "ssh-add <(echo '$SSH_PRIVATE_KEY')"
+
+  script:
+    - ssh $USER@$HOST echo "deploy"
