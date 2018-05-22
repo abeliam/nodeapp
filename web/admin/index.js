@@ -5,7 +5,10 @@ import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 import store from "./store"
 
-import Main from "./modules/app/components/Main"
+import "./index.css"
+import "typeface-gothic-a1"
+import Main from "./modules/app/containers/Main"
+
 
 ReactDOM.render(
   <Provider store={store}>

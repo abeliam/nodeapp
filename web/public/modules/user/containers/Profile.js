@@ -2,7 +2,8 @@ import { connect, dispatch } from "react-redux"
 import Profile from "../components/Profile"
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  messages: state.intl.messages
 })
 
 const mapDispatchToProps = (dispatch) => ({

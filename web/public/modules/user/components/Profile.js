@@ -20,17 +20,17 @@ class Profile extends React.Component {
 
   render() {
     console.log("done")
-    const {user} = this.props
+    const {user, messages} = this.props
     return (
       <section className="container">
         <h2>Profile</h2>
         <svg id={`avatar-${this.props.user._id}-${this.props.user.username}`} width="80" height="80">
           Please update your browser
         </svg>
-        <UserData label="Username">
+        <UserData label={messages["auth.username"]}>
           <p>{user.username}</p>
         </UserData>
-        <UserData label="Email">
+        <UserData label={messages["auth.email"]}>
           <p>{user.email}</p>
         </UserData>
       </section>
