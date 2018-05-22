@@ -2,7 +2,7 @@ import { connect, dispatch } from "react-redux"
 import SignUp from "../components/SignUp"
 
 const mapStateToProps = state => ({
-
+    messages: state.intl.messages
 })
 
 const mapDispatchToProps = (dispatch) => ({

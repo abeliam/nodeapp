@@ -11,6 +11,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^1.0.0",
+    "@material-ui/icons": "^1.0.0",
     "@nodeapp/intl": "^0.0.0",
     "@nodeapp/schemas": "^0.0.0",
     "ajv": "^6.4.0",

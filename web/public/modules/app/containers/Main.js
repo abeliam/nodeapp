@@ -4,7 +4,8 @@ import { withRouter } from 'react-router'
 import { USER__FETCHUSER_REQUEST } from "../../user/actions"
 
 const mapStateToProps = state => ({
-  authenticated: state.auth.authenticated
+  authenticated: state.auth.authenticated,
+  locale: state.intl.locale
 })
 
 const mapDispatchToProps = (dispatch) => ({

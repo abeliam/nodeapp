@@ -10,12 +10,16 @@ import SignUp from "../../auth/containers/SignUp"
 import SignOut from "../../auth/containers/SignOut"
 import Profile from "../../user/containers/Profile"
 
+import AppsIcon from "@material-ui/icons/Apps";
+
+import { FormattedMessage } from "react-intl"
+
 class Main extends React.Component {
   render() {
     return (
       <div id="app">
         <div className="container">
-          <h1>Nodeappl</h1>
+          <h1><AppsIcon/> <FormattedMessage id="app.title"/></h1>
         </div>
         <MainNavbar/>
         <Messages/>

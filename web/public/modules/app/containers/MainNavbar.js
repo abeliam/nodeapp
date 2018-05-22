@@ -14,15 +14,17 @@ const msg = {a: "b"}
 
 const mapDispatchToProps = (dispatch) => ({
   async setLocale(locale) {
+    console.log(locale)
     let messages
     switch(locale) {
       case "fr":
-        messages = await import("@nodeapp/intl/fr")
+        messages = (await import("@nodeapp/intl/fr")).default
         break
       case "en":
-        messages = await import("@nodeapp/intl/en")
+        messages = (await import("@nodeapp/intl/en")).default
         break
     }
+    console.log(messages)
     dispatch(updateIntl({
       locale,
       messages

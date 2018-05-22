@@ -3,7 +3,7 @@ import SignIn from "../components/SignIn"
 import authActions from "../actions"
 
 const mapStateToProps = state => ({
-
+    messages: state.intl.messages
 })
 
 const mapDispatchToProps = (dispatch) => ({

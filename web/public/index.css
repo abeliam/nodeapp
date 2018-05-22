@@ -17,6 +17,9 @@ body {
   padding: 0 15px;
   color: #fff;
   text-decoration: none;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
 }
 
 #mainNavbar a:hover {
@@ -156,4 +159,9 @@ button:hover {
 
 #langMenu > a:first-child, #langMenu:hover > a:not(:first-child) {
   display: flex;
+}
+
+#langMenu > a.current {
+    font-style: italic;
+    text-decoration: underline;
 }
