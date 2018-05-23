@@ -11,8 +11,14 @@
   "license": "MIT",
   "dependencies": {
     "@nodeapp/admin-client": "^0.0.0",
+    "@nodeapp/api-server": "^0.0.0",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "esm": "^3.0.34",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-bearer-token": "^2.1.1",
+    "express-session": "^1.15.6",
+    "http-status": "^1.1.0"
   },
   "bin": {
     "start-admin-server": "./start.bin.js"

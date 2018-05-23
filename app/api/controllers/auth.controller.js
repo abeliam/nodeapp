@@ -22,10 +22,10 @@ const authController = {
       response.json({ token })
     }
     catch(e) {
-      response.status(HTTPStatus.BAD_REQUEST).json({
-        status: HTTPStatus.BAD_REQUEST,
-        message: "Authentication failed"
-      })
+        response.status(HTTPStatus.BAD_REQUEST).json({
+            status: HTTPStatus.BAD_REQUEST,
+            message: "Authentication failed"
+        })
     }
   }
 }
