@@ -1,7 +1,7 @@
-const Bundler = require("parcel-bundler");
-const path = require("path");
+const Bundler = require("parcel-bundler")
+const path = require("path")
 
-const file = path.join(__dirname, "index.html");
+const file = path.join(__dirname, "index.html")
 
 let outDir
 if (process.argv.length > 2) {
@@ -20,8 +20,8 @@ else {
 const options = {
   outDir,
   cacheDir: path.join(__dirname, ".cache"),
-  watch: process.argv.includes("watch")
-};
+  watch: process.env.NODE_ENV === "development"
+}
 
 async function build() {
   const bundler = new Bundler(file, options);

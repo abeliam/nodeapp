@@ -1,0 +1,45 @@
+apps:
+  - script  : ./app/public/start.bin.js
+    name    : nodeapp-public-server
+    out_file: .storage/logs/public-server.out.log
+    err_file: .storage/logs/public-server.err.log
+    env:
+      NODE_ENV : production
+    env_development:
+      NODE_ENV : development
+  - script  : ./app/admin/start.bin.js
+    name    : nodeapp-admin-server
+    out_file: .storage/logs/admin-server.out.log
+    err_file: .storage/logs/admin-server.err.log
+    env:
+      NODE_ENV : production
+    env_development:
+      NODE_ENV : development
+  - script  : ./app/api/start.bin.js
+    name    : nodeapp-api-server
+    out_file: .storage/logs/api-server.out.log
+    err_file: .storage/logs/api-server.err.log
+    env:
+      NODE_ENV: production
+    env_development:
+      NODE_ENV: development
+  - script  : ./web/public/build.bin.js
+    args    : .dist/browser/public
+    name    : nodeapp-build-public-client
+    out_file: .storage/logs/build-public-client.out.log
+    err_file: .storage/logs/build-public-client.err.log
+    autorestart: false
+    env:
+      NODE_ENV: production
+    env_development:
+      NODE_ENV: development
+  - script  : ./web/admin/build.bin.js
+    args    : .dist/browser/admin
+    name    : nodeapp-build-admin-client
+    out_file: .storage/logs/build-admin-client.out.log
+    err_file: .storage/logs/build-admin-client.err.log
+    autorestart: false
+    env:
+      NODE_ENV: production
+    env_development:
+      NODE_ENV: development

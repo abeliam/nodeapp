@@ -22,36 +22,4 @@ const checkUser = async (request, response, next) => {
 
 app.use("/", checkUser, express.static(adminOutput))
 
-
-/*
-
-app.set('view engine', 'ejs');
-
-let jsBundle
-const files = fs.readdirSync(adminOutput)
-
-files.forEach(file => {
-    if (/admin\.[a-zA-Z0-9]*\.js/.test(file)) {
-        jsBundle = file
-    }
- })
-console.log(jsBundle)
-
-const checkUser = async (request, response, next) => {
-    try {
-        await isAuthenticated(request, response)
-        next()
-    }
-    catch(e) {
-        response.render(login)
-    }
-}
-
-app.use("/", checkUser, express.static(adminOutput))
-
-app.get("*", (request, response) => {
-    console.log("ok")
-    response.send("not found")
-})*/
-
 app.listen(app_port, () => console.log(`admin app server listening on port ${app_port}`))

@@ -8,8 +8,9 @@
   },
   "scripts": {
     "setup": "pnpm recursive link && pnpx keygen",
-    "start": "pnpx start-api-server & pnpx start-public-server & pnpx start-admin-server",
-    "start-database": "mongod --dbpath .storage/database",
+    "start": "pm2 start ecosystem.yml",
+    "start:dev": "pm2 start --env development ecosystem.yml",
+    "start-database": "pm2 start --name nodeapp-database --output .storage/logs/database.log mongod -- --dbpath .storage/database",
     "build": "pnpx build-public-client .dist/browser/public && pnpx build-admin-client .dist/browser/admin",
     "build:dev": "pnpx build-public-client .dist/browser/public watch & pnpx build-admin-client .dist/browser/admin watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +20,8 @@
     "@nodeapp/admin-server": "^0.0.0",
     "@nodeapp/api-server": "^0.0.0",
     "@nodeapp/public-client": "^0.0.0",
-    "@nodeapp/public-server": "^0.0.0"
+    "@nodeapp/public-server": "^0.0.0",
+    "pm2": "^2.10.4"
   },
   "author": "",
   "license": "MIT"

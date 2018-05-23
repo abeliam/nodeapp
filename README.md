@@ -3,7 +3,6 @@
 ## Dependencies
 * node
 * pnpm
-* pm2
 
 ## Usage
 ```
