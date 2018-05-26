@@ -60,4 +60,4 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
 
   script:
-    - ssh $USER@$HOST "docker login $CI_REGISTRY && docker pull $CI_REGISTRY_IMAGE && bash -c 'docker rm -f $CI_PROJECT_PATH_SLUG || true' && docker run --name  $CI_REGISTRY_IMAGE"
+    - ssh $USER@$HOST "docker login -u '$CI_REGISTRY_USER' -p '$CI_REGISTRY_PASSWORD' $CI_REGISTRY && docker pull $CI_REGISTRY_IMAGE && bash -c 'docker rm -f $CI_PROJECT_PATH_SLUG || true' && docker run --name  $CI_REGISTRY_IMAGE"
