@@ -26,8 +26,7 @@ test:
   before_script:
     - apk update
     - apk add bash python make g++ openssh openssl
-    - npm install -g pm2 pnpm
-    - pnpm run setup
+    - npm install -g pnpm
 
   script: echo "no test specified"
 
@@ -46,4 +45,4 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
 
   script:
-    - cat docker-compose.yml | ssh $USER@$HOST "docker-compose -f - up"
+    - cat docker-compose.yml | ssh $USER@$HOST "docker-compose -d -f - up"
