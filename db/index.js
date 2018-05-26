@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb"
 
 class Database {
   constructor() {
-    this.url = "mongodb://localhost/nodeapp"
+    this.url = "mongodb://db:27017/nodeapp"
     this.dbName = "nodeapp"
   }
 
