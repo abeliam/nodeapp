@@ -3,11 +3,10 @@ services:
     webapp:
         image: registry.gitlab.com/abeliam/nodeapp
         ports:
-            - 80:8080
+            - 1111:8080
         links:
             - db
     db:
         image: mongo
         ports:
             - 27017:27017
- 
