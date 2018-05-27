@@ -45,4 +45,4 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
 
   script:
-    - cat docker-compose.yml | ssh $USER@$HOST "docker-compose -d -f - up"
+    - cat docker-compose.yml | ssh $USER@$HOST "docker-compose -f - up -d"
