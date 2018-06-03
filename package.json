@@ -9,10 +9,10 @@
   "scripts": {
     "setup": "pnpm recursive link && pnpx keygen",
     "start": "pm2 start ecosystem.yml",
-    "start:dev": "pm2 start --env development ecosystem.yml",
-    "start-database": "pm2 start --name nodeapp-database --output .storage/logs/database.log mongod -- --dbpath .storage/database",
-    "build": "pnpx build-public-client .dist/browser/public && pnpx build-admin-client .dist/browser/admin",
-    "build:dev": "pnpx build-public-client .dist/browser/public watch & pnpx build-admin-client .dist/browser/admin watch",
+    "start:dev": "pm2 start dev.ecosystem.yml",
+    "start:db": "pm2 start --name nodeapp-database --output .storage/logs/database.log mongod -- --dbpath .storage/database",
+    "build": "parcel build --out-dir .dist/myapp client/myapp/index.html && parcel build --out-dir .dist/myapp-admin client/myapp-admin/index.html",
+    "build:dev": "pm2 start --interpreter sh --name build-myapp ./node_modules/.bin/parcel -- watch --out-dir .dist/myapp client/myapp/index.html && pm2 start --interpreter sh --name build-myapp-admin ./node_modules/.bin/parcel -- watch --out-dir .dist/myapp-admin client/myapp-admin/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@nodeapp/api-server": "^0.0.0",
     "@nodeapp/public-client": "^0.0.0",
     "@nodeapp/public-server": "^0.0.0",
+    "parcel-bundler": "^1.8.1",
     "pm2": "^2.10.4"
   },
   "author": "",

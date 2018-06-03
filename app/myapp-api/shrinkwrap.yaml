@@ -1,5 +1,5 @@
 dependencies:
-  '@nodeapp/database': 'link:../../db'
+  '@nodeapp/database': 'link:../../db/mongo'
   ajv: 6.5.0
   bcrypt: 2.0.1
   body-parser: 1.18.3

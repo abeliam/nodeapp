@@ -1,5 +1,5 @@
 dependencies:
-  '@nodeapp/schemas': 'link:../schemas'
+  '@nodeapp/schemas': 'link:../../schemas'
   mongodb: 3.0.8
 packages:
   /bson/1.0.6:

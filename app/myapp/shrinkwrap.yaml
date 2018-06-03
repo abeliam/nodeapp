@@ -1,7 +1,7 @@
 dependencies:
   '@nodeapp/admin-client': 'link:../../web/admin'
   '@nodeapp/database': 'link:../../db'
-  '@nodeapp/public-client': 'link:../../web/public'
+  '@nodeapp/public-client': 'link:../../client/myapp'
   esm: 3.0.34
   express: 4.16.3
 packages:

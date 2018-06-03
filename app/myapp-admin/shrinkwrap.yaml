@@ -1,5 +1,6 @@
 dependencies:
-  '@nodeapp/admin-client': 'link:../../web/admin'
+  '@nodeapp/admin-client': 'link:../../client/myapp-admin'
+  '@nodeapp/api-server': 'link:../myapp-api'
   '@nodeapp/database': 'link:../../db'
   body-parser: 1.18.3
   ejs: 2.6.1
@@ -501,6 +502,7 @@ shrinkwrapMinorVersion: 7
 shrinkwrapVersion: 3
 specifiers:
   '@nodeapp/admin-client': ^0.0.0
+  '@nodeapp/api-server': ^0.0.0
   body-parser: ^1.18.3
   ejs: ^2.6.1
   esm: ^3.0.34

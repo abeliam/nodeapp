@@ -1,0 +1,35 @@
+apps:
+  - script  : ./app/myapp/start.bin.js
+    name    : myapp-server
+    out_file: .storage/logs/public-server.out.log
+    err_file: .storage/logs/public-server.err.log
+    env:
+      NODE_ENV : development
+  - script  : ./app/myapp-admin/start.bin.js
+    name    : myapp-admin-server
+    out_file: .storage/logs/admin-server.out.log
+    err_file: .storage/logs/admin-server.err.log
+    env:
+      NODE_ENV : development
+  - script  : ./app/myapp-api/start.bin.js
+    name    : myapp-api-server
+    out_file: .storage/logs/api-server.out.log
+    err_file: .storage/logs/api-server.err.log
+    env:
+      NODE_ENV: development
+  - script     : ./node_modules/.bin/parcel
+    name       : build-myapp
+    out_file   : .storage/logs/build-myapp-client.out.log
+    err_file   : .storage/logs/build-myapp-client.err.log
+    args       : watch --out-dir .dist/myapp client/myapp/index.html
+    interpreter: sh
+    env        :
+      NODE_ENV : development
+  - script     : ./node_modules/.bin/parcel
+    name       : build-myapp-admin
+    out_file   : .storage/logs/build-myapp-admin-client.out.log
+    err_file   : .storage/logs/build-myapp-admin-client.err.log
+    args       : watch --out-dir .dist/myapp-admin client/myapp-admin/index.html
+    interpreter: sh
+    env        :
+      NODE_ENV : development
