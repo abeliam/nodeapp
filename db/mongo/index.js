@@ -2,7 +2,12 @@ import { MongoClient } from "mongodb"
 
 class Database {
   constructor() {
-    this.url = "mongodb://db:27017/nodeapp"
+    if (process.env.NODE_ENV === "production") {
+        this.url = "mongodb://db:27017/myapp"
+    }
+    else {
+        this.url = "mongodb://localhost:27017/myapp"
+    }
     this.dbName = "nodeapp"
   }
 

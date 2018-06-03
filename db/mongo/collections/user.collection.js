@@ -6,13 +6,6 @@ import userschema from "@nodeapp/schemas/User.json"
 class UserCollection {
   async initialize() {
     this.collection = Database.db.collection("users")
-
-    await Database.db.command({
-      collMod: "users",
-      validator: { $jsonSchema: userschema },
-      validationLevel: "moderate",
-      validationAction: "error"
-    })
   }
 
   async findAll(fields) {
