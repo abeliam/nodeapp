@@ -45,15 +45,19 @@ const Users = () => (
     <UsersWrapper>
         <h1>Users</h1>
         <UserTable>
-            <tr>
-                <TableHeaderData>username</TableHeaderData>
-                <TableHeaderData>email</TableHeaderData>
-                <TableHeaderData>actions</TableHeaderData>
-            </tr>
-            <User username="okok" email="azazaz@gmail.com"/>
-            <User username="terterytrye" email="azazaz@gmail.com"/>
-            <User username="yreyer" email="azazaz@gmail.com"/>
-            <User username="okytryereyrok" email="azazaz@gmail.com"/>
+            <thead>
+                <tr>
+                    <TableHeaderData>username</TableHeaderData>
+                    <TableHeaderData>email</TableHeaderData>
+                    <TableHeaderData>actions</TableHeaderData>
+                </tr>
+            </thead>
+            <tbody>
+                <User username="okok" email="azazaz@gmail.com"/>
+                <User username="terterytrye" email="azazaz@gmail.com"/>
+                <User username="yreyer" email="azazaz@gmail.com"/>
+                <User username="okytryereyrok" email="azazaz@gmail.com"/>
+            </tbody>
 
         </UserTable>
     </UsersWrapper>
