@@ -1,0 +1,13 @@
+packages:
+  - '.'
+  - 'lib/command'
+  - 'db/mongo'
+  - 'intl'
+  - 'schemas'
+  - 'app/myapp'
+  - 'app/myapp-admin'
+  - 'app/myapp-api'
+  - 'client/myapp'
+  - 'client/myapp-admin'
+  - 'client/myapp-ui'
+  - 'client/myapp-ui-react'

@@ -65,10 +65,9 @@
             </form>
         </div>
         <div id="appMountPoint"></div>
-        <script id="bundle" src="./index.js"></script>
         <script>
         function makeApp() {
-            fetch(document.getElementById("bundle").src, {
+            fetch("/index.js", {
                 method: "GET",
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("token")
@@ -79,6 +78,20 @@
                         const script = document.createElement("script")
                         script.innerHTML = text
                         document.getElementsByTagName('body')[0].appendChild(script);
+                    })
+                    .catch(e => console.log(e))
+            ).catch(e => console.log(e))
+            fetch("/index.css", {
+                method: "GET",
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                }
+            }).then(
+                response => response.text()
+                    .then(text => {
+                        const style = document.createElement("style")
+                        style.innerHTML = text
+                        document.getElementsByTagName('head')[0].appendChild(style);
                     })
                     .catch(e => console.log(e))
             ).catch(e => console.log(e))

@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
+import {Table} from "@nodeapp/ui-react"
 
 const UsersWrapper = styled("section")`
     padding: 30px;
-`
-
-const UserTable = styled("table")`
-         border: 1px solid #717171;
-              border-collapse: collapse;
 `
 
 const TableData = styled("td")`
@@ -44,7 +40,7 @@ User = styled(User)`
 const Users = () => (
     <UsersWrapper>
         <h1>Users</h1>
-        <UserTable>
+        <Table>
             <thead>
                 <tr>
                     <TableHeaderData>username</TableHeaderData>
@@ -59,7 +55,7 @@ const Users = () => (
                 <User username="okytryereyrok" email="azazaz@gmail.com"/>
             </tbody>
 
-        </UserTable>
+        </Table>
     </UsersWrapper>
 )
 export default Users

@@ -1,5 +1,5 @@
 {
-  "name": "@nodeapp/admin-ui",
+  "name": "@nodeapp/ui",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "styled-components": "^3.3.2"
-  }
+  "license": "MIT"
 }

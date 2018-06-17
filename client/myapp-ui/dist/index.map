@@ -1,0 +1,1 @@
+{"version":3,"sources":["table/index.js","index.js"],"names":[],"mappings":";;;AACA,aADA,QAAA,eACA,QAAA;;ACDA,aAAA,QAAA","file":"index.map","sourceRoot":"..","sourcesContent":["import \"./Table.css\"\nimport \"./TableHead.css\"\n","import \"./table\"\n"]}

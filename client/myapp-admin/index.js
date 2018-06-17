@@ -7,7 +7,7 @@ import store from "./store"
 
 import "typeface-gothic-a1"
 import Main from "./modules/app/containers/Main"
-
+import "@nodeapp/ui/dist/index.css"
 
 ReactDOM.render(
   <Provider store={store}>
