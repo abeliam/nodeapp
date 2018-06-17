@@ -8,6 +8,7 @@ import store from "./store"
 import "typeface-gothic-a1"
 import Main from "./modules/app/containers/Main"
 import "@nodeapp/ui/dist/index.css"
+import "babel-polyfill"
 
 ReactDOM.render(
   <Provider store={store}>

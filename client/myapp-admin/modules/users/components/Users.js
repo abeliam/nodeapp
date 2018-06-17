@@ -37,9 +37,10 @@ User = styled(User)`
     display: flex;
 `
 
-const Users = () => (
+const Users = ({users, fetchUsers}) => (
     <UsersWrapper>
         <h1>Users</h1>
+        <button onClick={fetchUsers}>Refresh</button>
         <Table>
             <thead>
                 <tr>
@@ -49,6 +50,9 @@ const Users = () => (
                 </tr>
             </thead>
             <tbody>
+                {users.map(
+                    user => <User username={user.username} email={user.mail}/>
+                )}
                 <User username="okok" email="azazaz@gmail.com"/>
                 <User username="terterytrye" email="azazaz@gmail.com"/>
                 <User username="yreyer" email="azazaz@gmail.com"/>

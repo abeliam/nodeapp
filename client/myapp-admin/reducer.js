@@ -1,6 +1,8 @@
+import { combineReducers } from "redux"
+import users from "./modules/users/reducer"
 
-const reducer = (state, action) => {
-  return state
-}
+const rootReducer = combineReducers({
+    users
+})
 
-export default reducer
+export default rootReducer

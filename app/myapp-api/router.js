@@ -16,6 +16,8 @@ apiRouter.post("/auth", authController.signIn)
 apiRouter.post("/user", userController.create)
 apiRouter.get("/user/:id", userController.read)
 
+apiRouter.get("/users", userController.index)
+
 // Unhandled routes
 apiRouter.use("*", (request, response) => response.sendStatus(HTTPStatus.NOT_FOUND))
 

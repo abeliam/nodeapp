@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom"
 
 import NotFound from "./NotFound"
 import Sidebar from "../containers/Sidebar"
-import Users from "../../user/containers/Users"
+import Users from "../../users/containers/Users"
 import styled from "styled-components"
 
 const Main = ({className}) => (
