@@ -1,0 +1,15 @@
+{
+  "name": "@nodeapp/command",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "shelljs": "^0.8.2"
+  }
+}

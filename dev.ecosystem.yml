@@ -1,24 +1,24 @@
 apps:
   - script  : ./app/myapp/start.bin.js
-    name    : myapp-server
+    name    : app
     out_file: .storage/logs/public-server.out.log
     err_file: .storage/logs/public-server.err.log
     env:
       NODE_ENV : development
   - script  : ./app/myapp-admin/start.bin.js
-    name    : myapp-admin-server
+    name    : admin
     out_file: .storage/logs/admin-server.out.log
     err_file: .storage/logs/admin-server.err.log
     env:
       NODE_ENV : development
   - script  : ./app/myapp-api/start.bin.js
-    name    : myapp-api-server
+    name    : api
     out_file: .storage/logs/api-server.out.log
     err_file: .storage/logs/api-server.err.log
     env:
       NODE_ENV: development
   - script     : ./node_modules/.bin/parcel
-    name       : build-myapp
+    name       : build-app
     out_file   : .storage/logs/build-myapp-client.out.log
     err_file   : .storage/logs/build-myapp-client.err.log
     args       : watch -d .dist/myapp client/myapp/index.html
@@ -26,10 +26,17 @@ apps:
     env        :
       NODE_ENV : development
   - script     : ./node_modules/.bin/parcel
-    name       : build-myapp-admin
+    name       : build-admin
     out_file   : .storage/logs/build-myapp-admin-client.out.log
     err_file   : .storage/logs/build-myapp-admin-client.err.log
-    args       : watch -d .dist/myapp-admin client/myapp-admin/index.html client/myapp-admin/index.js 
+    args       : watch -d .dist/myapp-admin client/myapp-admin/index.html client/myapp-admin/index.js
     interpreter: sh
+    env        :
+      NODE_ENV : development
+  - script     : mongod
+    name       : database
+    out_file   : .storage/logs/database.out.log
+    err_file   : .storage/logs/database.err.log
+    args       : --dbpath .storage/database
     env        :
       NODE_ENV : development
