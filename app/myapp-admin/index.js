@@ -11,6 +11,7 @@ const app_port = 8282
 const app = express()
 
 app.use(bearerToken())
+
 const checkUser = async (request, response, next) => {
     try {
         await hasRole("admin")(request, response, next)

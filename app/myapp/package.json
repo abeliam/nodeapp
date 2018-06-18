@@ -11,8 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "@nodeapp/public-client": "^0.0.0",
+    "babel-preset-react": "^6.24.1",
     "esm": "^3.0.34",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "bin": {
     "start-public-server": "./start.bin.js"

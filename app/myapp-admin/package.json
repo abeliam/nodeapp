@@ -10,9 +10,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@nodeapp/database": "^0.0.0",
     "@nodeapp/admin-client": "^0.0.0",
     "@nodeapp/api-server": "^0.0.0",
+    "@nodeapp/database": "^0.0.0",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "esm": "^3.0.34",

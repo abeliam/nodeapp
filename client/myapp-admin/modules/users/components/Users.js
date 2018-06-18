@@ -1,61 +1,48 @@
 import React from 'react'
 import styled from "styled-components"
-import {Table} from "@nodeapp/ui-react"
+import {Table, TableHeader, TableCell, TableBody, TableRow, Button} from "@nodeapp/ui-react"
+import Section from "../../app/components/Section"
+import SectionHeader from "../../app/components/SectionHeader"
 
-const UsersWrapper = styled("section")`
-    padding: 30px;
-`
-
-const TableData = styled("td")`
-    border: 1px solid #717171;
-    border-collapse: collapse;
-    height: 1.8em;
-    line-height: 1.8em;
-    padding: 0 15px;
-    text-align: left;
-`
-
-const TableHeaderData = styled("th")`
-    border: 1px solid #717171;
-    border-collapse: collapse;
-    height: 1.8em;
-    line-height: 1.8em;
-    padding: 0 15px;
-    text-align: left;
-`
-
-let User = ({username, email}) => (
-    <tr>
-        <TableData>{username}</TableData>
-        <TableData>{email}</TableData>
-        <TableData><a href="#">delete</a> / <a href="#">edit</a></TableData>
-    </tr>
+const UserRow = ({username, email}) => (
+    <TableRow>
+        <TableCell>{username}</TableCell>
+        <TableCell>{email}</TableCell>
+        <TableCell>
+            <Button type="primary">edit</Button>
+            <Button type="failure">delete</Button>
+        </TableCell>
+    </TableRow>
 )
 
+class Users extends React.Component {
+    componentDidMount() {
+        this.props.fetchUsers()
+    }
 
-User = styled(User)`
-    display: flex;
-`
+    render() {
+        const {users, fetchUsers} = this.props
+        return (
+            <Section>
+                <SectionHeader title="Users"/>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableCell>username</TableCell>
+                            <TableCell>email</TableCell>
+                            <TableCell>actions</TableCell>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {users.map(
+                            user => <UserRow key={user._id} username={user.username} email={user.email}/>
+                        )}
+                    </TableBody>
+                </Table>
+            </Section>
+        )
+    }
+}
 
-const Users = ({users, fetchUsers}) => (
-    <UsersWrapper>
-        <h1>Users</h1>
-        <button onClick={fetchUsers}>Refresh</button>
-        <Table>
-            <thead>
-                <tr>
-                    <TableHeaderData>username</TableHeaderData>
-                    <TableHeaderData>email</TableHeaderData>
-                    <TableHeaderData>actions</TableHeaderData>
-                </tr>
-            </thead>
-            <tbody>
-                {users.map(
-                    user => <User key={user._id} username={user.username} email={user.email}/>
-                )}
-            </tbody>
 
-        </Table>
-    </UsersWrapper>
-)
 export default Users

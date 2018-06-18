@@ -7,7 +7,8 @@ import cert from "../cert"
 
 const userController = {
     async index(request, response) {
-        response.json([{username:"hhhihi"}, {username:"hhhihi"}]);
+        const users = await User.findAll()
+        response.json(users)
     },
     async read(request, response) {
         try {

@@ -14,6 +14,7 @@ const StyledMemoryIcon = styled(MemoryIcon)`margin-right: 5px; font-size: 16px !
 
 const SidebarContainer = styled("nav")`
     height: 100vh;
+    width: 200px;
     background: #2A2C35;
     display: flex;
     flex-direction: column;
