@@ -3,7 +3,15 @@ import actions from "./action.types"
 import api from "../../api"
 
 function* fetchUser(action) {
-    api.get()
+    try {
+        const response = yield api.get('/users')
+        yield put(actions.fetchUsersSuccess(response.data))
+    }
+    catch (e) {
+        console.log(e)
+        yield put(actions.fetchUsersFailure())
+    }
+
 }
 
 function* usersSaga() {

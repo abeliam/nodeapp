@@ -21,7 +21,7 @@ apps:
     name       : build-myapp
     out_file   : .storage/logs/build-myapp-client.out.log
     err_file   : .storage/logs/build-myapp-client.err.log
-    args       : watch --out-dir .dist/myapp client/myapp/index.html
+    args       : watch -d .dist/myapp client/myapp/index.html
     interpreter: sh
     env        :
       NODE_ENV : development
@@ -29,7 +29,7 @@ apps:
     name       : build-myapp-admin
     out_file   : .storage/logs/build-myapp-admin-client.out.log
     err_file   : .storage/logs/build-myapp-admin-client.err.log
-    args       : watch --out-dir .dist/myapp-admin client/myapp-admin/index.html
+    args       : watch -d .dist/myapp-admin client/myapp-admin/index.html client/myapp-admin/index.js 
     interpreter: sh
     env        :
       NODE_ENV : development

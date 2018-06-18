@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     fetchUsers() {
-        dispatch({type: actions.FETCH_USERS_REQUEST})
+        dispatch(actions.fetchUsersRequest())
     }
 })
 

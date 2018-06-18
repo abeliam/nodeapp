@@ -51,12 +51,8 @@ const Users = ({users, fetchUsers}) => (
             </thead>
             <tbody>
                 {users.map(
-                    user => <User username={user.username} email={user.mail}/>
+                    user => <User key={user._id} username={user.username} email={user.email}/>
                 )}
-                <User username="okok" email="azazaz@gmail.com"/>
-                <User username="terterytrye" email="azazaz@gmail.com"/>
-                <User username="yreyer" email="azazaz@gmail.com"/>
-                <User username="okytryereyrok" email="azazaz@gmail.com"/>
             </tbody>
 
         </Table>
